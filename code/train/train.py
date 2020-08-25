@@ -78,7 +78,7 @@ def main(args):
     X, y = datasets.load_iris(return_X_y=True)
     
     #dividing X,y into train and test data
-    testsize=0.25
+    testsize=0.4
     run.log("Test Size", testsize)
     
     x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=testsize, random_state=223)
