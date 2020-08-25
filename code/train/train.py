@@ -85,6 +85,11 @@ def main(args):
     data = {'train': {'X': x_train, 'y': y_train},
             'test': {'X': x_test, 'y': y_test}}
     
+    nobs_train = x_train.shape[0]
+    nobs_test  = x_test.shape[0]
+    run.log('Nobs Train', nobs_train)
+    run.log('Nobs Test', nobs_test)
+    
     # train a SVM classifier
     svm_model = SVC(kernel=args.kernel, C=args.penalty, gamma='scale').fit(data['train']['X'], data['train']['y'])
     svm_predictions = svm_model.predict(data['test']['X'])
